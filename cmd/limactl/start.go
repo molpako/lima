@@ -403,7 +403,7 @@ func startAction(cmd *cobra.Command, args []string) error {
 	ctx := cmd.Context()
 	err = networks.Reconcile(ctx, inst.Name)
 	if err != nil {
-		return err
+		logrus.Warnf("networks.Reconcile error: %v", err)
 	}
 
 	timeout, err := cmd.Flags().GetDuration("timeout")
