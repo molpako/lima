@@ -100,4 +100,5 @@ jobs:
         asset_flags=()
         for f in _artifacts/*; do asset_flags+=("-a" "$f"); done
         echo "${asset_flags[@]}"
+        echo "${tag}"
         hub release create "${asset_flags[@]}" -F /tmp/release-note.txt --draft "${tag}"
